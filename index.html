@@ -38,6 +38,105 @@ letter-spacing:.6px;
 .controls{flex-direction:column}
 input,select,button{width:100%}
 }
+
+/* ===== SAMAKAN SEARCH & SELECT ===== */
+
+.controls{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.controls input,
+.controls select,
+.controls button{
+width:100%;
+box-sizing:border-box;
+height:44px;
+padding:10px 12px;
+border-radius:12px;
+border:1px solid #334155;
+background:#0f172a;
+color:#e2e8f0;
+font-size:14px;
+display:block;
+}
+
+/* Fokus modern */
+.controls input:focus,
+.controls select:focus{
+border-color:#3b82f6;
+box-shadow:0 0 0 1px #3b82f6;
+}
+
+/* Reset button center */
+#resetBtn{
+font-weight:600;
+letter-spacing:.3px;
+}
+
+/* ===== MOBILE MODERN UI ===== */
+
+@media (max-width:720px){
+
+.wrap{
+padding:12px;
+}
+
+.title{
+font-size:18px;
+text-align:center;
+margin-bottom:14px;
+}
+
+/* Kontrol lebih nyaman disentuh */
+.controls input,
+.controls select,
+.controls button{
+height:48px;
+font-size:15px;
+border-radius:14px;
+}
+
+/* Efek tekan */
+.controls button:active{
+transform:scale(.98);
+}
+
+/* List lebih lega */
+td{
+padding:14px 10px;
+font-size:14px;
+}
+
+/* Unit lebih jelas */
+td:first-child{
+font-size:13px;
+letter-spacing:.6px;
+}
+
+/* Nama lebih fokus */
+td:nth-child(2){
+font-weight:500;
+}
+
+/* Scroll halus */
+.table-wrap{
+overflow-x:auto;
+scroll-behavior:smooth;
+}
+
+/* Card-like row */
+tbody tr{
+border-radius:10px;
+}
+
+tbody tr:hover{
+background:rgba(255,255,255,0.04);
+}
+
+}
+  
 </style>
 </head>
 
@@ -58,7 +157,7 @@ input,select,button{width:100%}
 <button id="resetBtn">Reset</button>
 </div>
 
-<div style="max-height:70vh;overflow:auto">
+<div class="table-wrap" style="max-height:70vh;overflow:auto">
 <table>
 <thead>
 <tr>

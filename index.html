@@ -136,7 +136,49 @@ background:rgba(255,255,255,0.04);
 }
 
 }
-  
+
+/* ===== ULTRA MOBILE COMPACT ===== */
+@media (max-width:720px){
+
+.wrap{
+padding:8px;
+}
+
+.title{
+font-size:15px;
+margin-bottom:10px;
+}
+
+.controls input{
+height:38px;
+font-size:13px;
+padding:6px 10px;
+border-radius:10px;
+}
+
+thead th{
+padding:6px 8px;
+font-size:12px;
+}
+
+td{
+padding:8px 8px;
+font-size:13px;
+}
+
+td:first-child{
+font-size:12px;
+letter-spacing:.4px;
+}
+
+tbody tr{
+line-height:1.2;
+}
+
+.table-wrap{
+max-height:78vh;
+}
+}
 </style>
 </head>
 
@@ -147,15 +189,6 @@ background:rgba(255,255,255,0.04);
 
 <div class="controls">
 <input id="search" placeholder="Cari unit / nama"/>
-
-<select id="lokasi">
-<option value="">Semua Lokasi</option>
-<option value="GM-">Ganda Maghfirah</option>
-<option value="TK-">Teluk Kelayan</option>
-</select>
-
-<button id="resetBtn">Reset</button>
-</div>
 
 <div class="table-wrap" style="max-height:70vh;overflow:auto">
 <table>
@@ -214,22 +247,16 @@ document.getElementById("tbody").innerHTML=html;
 
 function applyFilter(){
 const s=document.getElementById("search").value.toLowerCase();
-const l=document.getElementById("lokasi").value;
-
 VIEW=RAW.filter(d=>{
-if(l&&!d.Unit.toUpperCase().startsWith(l))return false;
-if(!s)return true;
-return d.Unit.toLowerCase().includes(s)||d.Nama.toLowerCase().includes(s);
+if(!s) return true;
+return d.Unit.toLowerCase().includes(s) ||
+       d.Nama.toLowerCase().includes(s);
 });
 render();
 }
 
 document.getElementById("search").oninput=applyFilter;
-document.getElementById("lokasi").onchange=applyFilter;
-
-document.getElementById("resetBtn").onclick=()=>{
 document.getElementById("search").value="";
-document.getElementById("lokasi").value="";
 VIEW=RAW;
 render();
 };
